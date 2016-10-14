@@ -19,11 +19,15 @@ app.controller('quizCtrl', ['$scope', '$http', '$timeout',
     $scope.curpunten = "";
     $scope.curposition = "";
 
+    $scope.lastthree = false;
+
     // audio files
     var queen = document.getElementById('auqueen');
     var clock = document.getElementById('auclock');
     var results = document.getElementById('auresults');
     var end = document.getElementById('auend');
+    var drumroll = document.getElementById('audrumroll');
+
 
 
     //reading JSON
@@ -70,21 +74,26 @@ app.controller('quizCtrl', ['$scope', '$http', '$timeout',
       console.log($scope.curaantal);
       console.log($scope.aantal);
       if ($scope.curaantal !== $scope.aantal) {
-        $scope.anim = false;
+        if ($scope.curaantal === $scope.aantal - 3) {
+          $scope.anim = false;
+        } else {
+          $scope.anim = false;
+        }
+
         $scope.testtime = $timeout($scope.test, 1000);
       }
     };
 
     $scope.test = function() {
-      if ($scope.curaantal === $scope.aantal - 3 && $scope.confetti === true) {
+      if ($scope.curaantal === $scope.aantal - 3 && $scope.confetti === true && $scope.lastthree === false) {
         results.pause();
+        audrumroll.play();
         results.currentTime = 0;
-        queen.play();
-      }
-
-      if ($scope.curaantal !== $scope.aantal) {
+        $scope.lastthree = true;
+        $scope.anim = false;
+      } else if ($scope.curaantal !== $scope.aantal) {
         $scope.curteam = $scope.sortable[$scope.curaantal][0];
-        $scope.curpunten = $scope.sortable[$scope.curaantal][1];
+        $scope.curpunten = $scope.sortable[$scope.curaantal][1] + " punten";
         $scope.curposition = $scope.aantal - $scope.curaantal;
         $scope.resulttime = $timeout($scope.startResult, 4000);
         $scope.anim = true;
@@ -143,9 +152,19 @@ app.controller('quizCtrl', ['$scope', '$http', '$timeout',
           $scope.message = "";
         }
       } else if (ev.which === 32 && $scope.klok === false) {
-        //$scope.anim = true;
-        $scope.resulttime = $timeout($scope.startResult, 500);
-        results.play();
+
+        if ($scope.lastthree === false) {
+          results.play();
+          $scope.resulttime = $timeout($scope.startResult, 500);
+        } else if ($scope.lastthree === true) {
+          $scope.curteam = "";
+          $scope.curpunten = "";
+          $scope.curposition = "";
+          queen.play();
+          $scope.anim = true;
+          $scope.resulttime = $timeout($scope.startResult, 500);
+        }
+
       }
       //other keys z,x,y
       else if (ev.which === 90 && $scope.klok === true) {

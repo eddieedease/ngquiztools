@@ -18,10 +18,14 @@ Requires bower to be installed, so from the root do a 'bower install' on cli. Th
 Hotkeys:
 When opening watch.html
 
-  - P:   hide/show timer
+Timer
+  - P:   hide/show timers
   - Z/- X/- C: If timer is shown, change seconds for question to 10,30,60 sec.
   - SPACE: Start countdown
 
+Score
+  - when timers is hidden press space
+  
 When the timer is hidden, you can press
   - R and then - SPACE: show confetti, sets up endresult. Also, on numers 3 to 1, you get "champion-sound" ;)
 

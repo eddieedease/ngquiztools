@@ -1,0 +1,33 @@
+/*Simple reset*/
+* {margin: 0; padding: 0;}
+
+body {
+	/*You can use any kind of background here.*/
+	background-image: url("../bg.jpg");
+	* {cursor: none;}
+}
+canvas {
+
+}
+
+h1 {
+	font-size: 100px;
+	color : #000;
+}
+
+h2 {
+	font-size: 40px;
+	color : #000;
+}
+
+
+h3 {
+	font-size: 60px;
+	color : rgb(16, 195, 251);
+}
+
+
+h4 {
+	font-size: 30px;
+	color : #fff;
+}

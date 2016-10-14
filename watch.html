@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html ng-app="watch">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body ng-controller="quizCtrl" ng-cloak ng-keydown="myFunct($event)">
+  <audio id=auqueen style="visibility:hidden;">
+	   <source src="sounds/queen.mp3" type='audio/mpeg; codecs="mp3"'>
+	   <source src="sounds/queen.ogg" type='audio/ogg; codecs="vorbis"'> <!--In case mp3 is not supported-->
+	</audio>
+  <audio id=auclock style="visibility:hidden;">
+	   <source src="sounds/clock.mp3" type='audio/mpeg; codecs="mp3"'>
+	   <source src="sounds/clock.ogg" type='audio/ogg; codecs="vorbis"'> <!--In case mp3 is not supported-->
+	</audio>
+  <audio id=auresults style="visibility:hidden;">
+	   <source src="sounds/results.mp3" type='audio/mpeg; codecs="mp3"'>
+	   <source src="sounds/results.ogg" type='audio/ogg; codecs="vorbis"'> <!--In case mp3 is not supported-->
+	</audio>
+  <audio id=auend style="visibility:hidden;">
+	   <source src="sounds/end.mp3" type='audio/mpeg; codecs="mp3"'>
+	   <source src="sounds/end.ogg" type='audio/ogg; codecs="vorbis"'> <!--In case mp3 is not supported-->
+	</audio>
+  <div ng-show="score" ng-cloak>
+    <div ng-show="confetti">
+      <canvas id="canvas" style="position:absolute;z-index:1"></canvas>
+    </div>
+    <div class="container">
+      <div class="row" style="height:200px"></div>
+      <div class="row" style="top: 30%;">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div ng-show="anim" class="fx-zoom-down">
+            <div class="well">
+              <div class="panel panel-default text-center">
+
+                <div class="panel-heading">
+                  Resultaat
+                </div>
+                <div class="panel-body">
+                  <h3> #{{curposition}}</h3>
+                  <h1>{{curteam}}</h1>
+                  <h2>{{curpunten}} punten</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+  </div>
+  <div ng-show="klok">
+
+
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="text-center" style="color:#fff">Tijd resterend</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br><br><br><br>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="jumbotron">
+              <h1 class="text-center">{{counter}}</h1>
+              <h2 class="text-center">{{message}}</h2>
+              <a class="btn btn-block btn-info btn-large btn-lg"><h4>KennisQuiz 2016</h4></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="section section-primary">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <p class="text-info text-right">
+              <br>
+              <br>
+            </p>
+            <div class="row">
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular-animate.min.js"></script>
+
+<script type="text/javascript" src="bower_components/gsap/src/minified/TweenMax.min.js"></script>
+<script type="text/javascript" src="bower_components/angular/ngFx.js"></script>
+
+<script type="text/javascript" src="js/watch.js"></script>
+<script type="text/javascript" src="js/conf.js"></script>
+
+
+</html>

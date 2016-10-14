@@ -1,0 +1,32 @@
+[
+    {
+        "vraag": "Vraag 1",
+        "img": "/imgpath",
+        "A": "Doe",
+        "B": "Doe",
+        "C": "Doe",
+        "D": "Doe",
+        "E": "Doe",
+        "F": "Doe"
+    },
+    {
+        "vraag": "Vraag 2",
+        "img": "/imgpath",
+        "A": "Doe",
+        "B": "Doe",
+        "C": "Doe",
+        "D": "Doe",
+        "E": "Doe",
+        "F": "Doe"
+    },
+    {
+        "vraag": "Vraag 3",
+        "img": "/imgpath",
+        "A": "Doe",
+        "B": "Doe",
+        "C": "Doe",
+        "D": "Doe",
+        "E": "Doe",
+        "F": "Doe"
+    }
+]

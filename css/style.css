@@ -4,6 +4,8 @@
 body {
 	/*You can use any kind of background here.*/
 	background-image: url("../bg.jpg");
+	background-size: cover;
+	cursor: none;
 	* {cursor: none;}
 }
 canvas {

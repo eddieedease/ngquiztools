@@ -63,8 +63,8 @@ app.controller('quizCtrl', ['$scope', '$http', '$timeout',
       if ($scope.counter !== 0) {
         $scope.mytimeout = $timeout($scope.onTimeout, 1000);
       } else {
-        end.play();
         clock.pause();
+        end.play();
         results.currentTime = 0;
         $scope.message = "TIJD is OM!";
       }
@@ -79,7 +79,6 @@ app.controller('quizCtrl', ['$scope', '$http', '$timeout',
         } else {
           $scope.anim = false;
         }
-
         $scope.testtime = $timeout($scope.test, 1000);
       }
     };
@@ -87,7 +86,8 @@ app.controller('quizCtrl', ['$scope', '$http', '$timeout',
     $scope.test = function() {
       if ($scope.curaantal === $scope.aantal - 3 && $scope.confetti === true && $scope.lastthree === false) {
         results.pause();
-        audrumroll.play();
+        drumroll.play();
+      console.log("drumroll moet inkicken");
         results.currentTime = 0;
         $scope.lastthree = true;
         $scope.anim = false;
@@ -130,7 +130,6 @@ app.controller('quizCtrl', ['$scope', '$http', '$timeout',
       // the R for real results
       if (ev.which === 82 && $scope.score === true) {
         $scope.confetti = true;
-
       }
       //enter key = reset
       if (ev.which === 13 && $scope.klok === true) {
@@ -149,22 +148,24 @@ app.controller('quizCtrl', ['$scope', '$http', '$timeout',
           $scope.mytimeout = $timeout($scope.onTimeout, 1000);
           $scope.anim = false;
           clock.play();
+          console.log("clock should play");
           $scope.message = "";
         }
       } else if (ev.which === 32 && $scope.klok === false) {
-
         if ($scope.lastthree === false) {
           results.play();
+          console.log("lastthree = false");
           $scope.resulttime = $timeout($scope.startResult, 500);
         } else if ($scope.lastthree === true) {
           $scope.curteam = "";
           $scope.curpunten = "";
           $scope.curposition = "";
+          drumroll.pause();
           queen.play();
+          console.log("lastthree = true");
           $scope.anim = true;
           $scope.resulttime = $timeout($scope.startResult, 500);
         }
-
       }
       //other keys z,x,y
       else if (ev.which === 90 && $scope.klok === true) {
@@ -174,6 +175,7 @@ app.controller('quizCtrl', ['$scope', '$http', '$timeout',
       } else if (ev.which === 88 && $scope.klok === true) {
         $timeout.cancel($scope.mytimeout);
         $scope.counter = 60;
+        $scope.message = "";
       } else if (ev.which === 67 && $scope.klok === true) {
         $timeout.cancel($scope.mytimeout);
         $scope.counter = 10;

@@ -8,12 +8,11 @@ Currently has:
   - Score announcements (Music, sounds & Confetti)
 
 This application is made with Angular (hence the ng). No npm or that kind of stuff here, just basic.
+Bower components are included
 
 Just run /watch.html. Everything is bundled into that.
 
 ## Using
-
-Requires bower to be installed, so from the root do a 'bower install' on cli. Then, you're all set!
 
 Hotkeys:
 When opening watch.html

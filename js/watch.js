@@ -5,7 +5,7 @@ var app = angular.module('watch', ['ngFx', 'ngAnimate']);
 app.controller('quizCtrl', ['$scope', '$http', '$timeout',
   function($scope, $http, $timeout) {
     // Standard counter
-    $scope.counter = 60;
+    $scope.counter = 30;
     $scope.score = false;
     $scope.klok = true;
     $scope.anim = false;
@@ -116,7 +116,8 @@ app.controller('quizCtrl', ['$scope', '$http', '$timeout',
         if ($scope.klok === true) {
           $timeout.cancel($scope.mytimeout);
           $scope.confetti = false;
-          $scope.counter = 60;
+          $scope.counter = 30;
+          $scope.message = "TIJD is OM!";
           $scope.klok = false;
           $scope.score = true;
           $scope.anim = false;
@@ -134,7 +135,7 @@ app.controller('quizCtrl', ['$scope', '$http', '$timeout',
       //enter key = reset
       if (ev.which === 13 && $scope.klok === true) {
         $timeout.cancel($scope.mytimeout);
-        $scope.counter = 60;
+        $scope.counter = 30;
         $scope.message = "";
       } else if (ev.which === 13 && $scope.klok === false) {
         $timeout.cancel($scope.testtime);

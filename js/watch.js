@@ -31,7 +31,7 @@ app.controller('quizCtrl', ['$scope', '$http', '$timeout',
 
 
     //reading JSON
-    $http.get('json/score.json')
+    $http.get('json/score0.json')
       .then(function(res) {
         $scope.jsonn = res.data[0];
         // TODO below is he conversion of object with value
@@ -87,7 +87,7 @@ app.controller('quizCtrl', ['$scope', '$http', '$timeout',
       if ($scope.curaantal === $scope.aantal - 3 && $scope.confetti === true && $scope.lastthree === false) {
         results.pause();
         drumroll.play();
-      console.log("drumroll moet inkicken");
+        console.log("drumroll moet inkicken");
         results.currentTime = 0;
         $scope.lastthree = true;
         $scope.anim = false;
